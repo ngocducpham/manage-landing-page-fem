@@ -127,7 +127,7 @@ export default function Home() {
                     What they&rsquo;ve said
                 </Text>
                 <FeedBack className="md:mt-20 mt-10" />
-                <div className="text-center mt-14">
+                <div className="text-center mt-14 md:mt-10">
                     <Button>Get Started</Button>
                 </div>
             </section>
