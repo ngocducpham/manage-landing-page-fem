@@ -1,0 +1,1 @@
+export { ResizeAnimationStop } from './ResizeAnimationStop';

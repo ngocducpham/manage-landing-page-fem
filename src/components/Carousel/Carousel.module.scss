@@ -1,0 +1,26 @@
+.embla {
+    --slide-spacing: 30px;
+    overflow: hidden;
+
+    .viewport {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--slide-spacing);
+
+            .slide {
+                flex: 0 0 100%;
+                min-width: 0;
+            }
+
+            @media (min-width: 768px) {
+                .slide {
+                    flex: 0 0 auto;
+                }
+            }
+        }
+    }
+}

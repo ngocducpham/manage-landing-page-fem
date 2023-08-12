@@ -1,0 +1,15 @@
+.xl {
+    // 37px → 54px
+    font-size: clamp(2.31rem, calc(1.94rem + 1.60vw), 3.38rem);
+    line-height: clamp(3.25rem, 2.942rem + 1.315vw, 4.125rem);
+}
+
+.lg {
+    // 30px → 39px
+    font-size: clamp(1.875rem, 1.588rem + 1.224vw, 2.438rem);
+    line-height: 2.75rem;
+}
+
+.sm{
+    font-size: 0.813rem;
+}

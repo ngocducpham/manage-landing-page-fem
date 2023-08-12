@@ -1,118 +1,152 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Head from "next/head";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ['latin'] })
+import hero from "@/assets/images/illustration-intro.svg";
+import { Button } from "@/components/Button";
+import { Carousel } from "@/components/Carousel";
+import { Container } from "@/components/Container";
+import { Flex } from "@/components/Flex";
+import { OrderNumber, Text } from "@/components/Text";
+import { FeedBack } from "@/modules/feed-back";
 
 export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <>
+            <Head>
+                <title>Manage Landing Page</title>
+                <meta name="description" content="Manage Landing Page" />
+            </Head>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <section className="mt-11 md:mt-28">
+                <Container>
+                    <Flex className="items-center">
+                        <div className="md:col-start-2 flex md:block justify-center">
+                            <Image priority src={hero} alt="hero" />
+                        </div>
+                        <div className="md:col-start-1 mt-6 md:mt-0 flex flex-col items-center md:block">
+                            <Text
+                                size="xl"
+                                variant="header"
+                                className="text-center md:text-left"
+                            >
+                                Bring everyone together to build better
+                                products.
+                            </Text>
+                            <Text className="text-center md:text-left py-2 leading-8 px-4 md:px-0 md:w-96">
+                                Manage makes it simple for software teams to
+                                plan day-to-day tasks while keeping the larger
+                                team goals in view.
+                            </Text>
+                            <Button className="mt-5">Get Started</Button>
+                        </div>
+                    </Flex>
+                </Container>
+            </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <section className="mt-24 md:mt-28">
+                <Container>
+                    <Flex>
+                        <div>
+                            <Text
+                                size="lg"
+                                variant="header"
+                                className="text-center md:text-left"
+                            >
+                                What&rsquo;s different about Manage?
+                            </Text>
+                            <Text className="mt-7 md:w-80 leading-7 text-center md:text-left">
+                                Manage provides all the functionality your team
+                                needs, without the complexity. Our software is
+                                tailor-made for modern digital product teams.
+                            </Text>
+                        </div>
+                        <div className="md:ml-5 feature-list mt-16 md:mt-0">
+                            <ul role="list">
+                                <li className="mb-9">
+                                    <div className="">
+                                        <div className="bg-red-300 md:bg-transparent flex items-center md:gap-x-6 gap-x-4 rounded-l-full">
+                                            <OrderNumber number="01" />
+                                            <Text variant="header">
+                                                Track company-wide progress
+                                            </Text>
+                                        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+                                        <Text className="md:col-start-2 col-span-2 leading-7 mt-3 pr-1 md:ml-24">
+                                            See how your day-to-day tasks fit
+                                            into the wider vision. Go from
+                                            tracking progress at the milestone
+                                            level all the way done to the
+                                            smallest of details. Never lose
+                                            sight of the bigger picture again.
+                                        </Text>
+                                    </div>
+                                </li>
+                                <li className="mb-9">
+                                    <div className="">
+                                        <div className="bg-red-300 md:bg-transparent flex items-center md:gap-x-6 gap-x-4 rounded-l-full">
+                                            <OrderNumber number="02" />
+                                            <Text variant="header">
+                                                Advanced built-in reports
+                                            </Text>
+                                        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
+                                        <Text className="md:col-start-2 col-span-2 leading-7 mt-3 pr-1 md:ml-24">
+                                            Set internal delivery estimates and
+                                            track progress toward company goals.
+                                            Our customizable dashboard helps you
+                                            build out the reports you need to
+                                            keep key stakeholders informed.
+                                        </Text>
+                                    </div>
+                                </li>
+                                <li className="mb-9">
+                                    <div className="">
+                                        <div className="bg-red-300 md:bg-transparent flex items-center md:gap-x-6 gap-x-4 rounded-l-full">
+                                            <OrderNumber number="03" />
+                                            <Text variant="header">
+                                                Everything you need in one place
+                                            </Text>
+                                        </div>
+                                        <Text className="md:col-start-2 col-span-2 leading-7 mt-3 pr-1 md:ml-24">
+                                            Stop jumping from one service to
+                                            another to communicate, store files,
+                                            track tasks and share documents.
+                                            Manage offers an all-in-one team
+                                            productivity solution.
+                                        </Text>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </Flex>
+                </Container>
+            </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            <section className="mt-16 md:mt-32">
+                <Text size="lg" variant="header" className="text-center">
+                    What they&rsquo;ve said
+                </Text>
+                <FeedBack className="md:mt-20 mt-10" />
+                <div className="text-center mt-14">
+                    <Button>Get Started</Button>
+                </div>
+            </section>
+
+            <section className="bg-red-500 py-[90px] md:py-14 mt-48">
+                <Container>
+                    <Flex>
+                        <Text
+                            variant="default"
+                            className="font-bold text-center text-[39px] leading-[50px] md:text-left"
+                        >
+                            Simplify how your team works today.
+                        </Text>
+                        <div className="flex justify-center mt-7 md:justify-end">
+                            <Button variant="secondary">Get Started</Button>
+                        </div>
+                    </Flex>
+                </Container>
+            </section>
+        </>
+    );
 }

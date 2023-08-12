@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .hover-color-transition {
+        @apply transition-colors duration-200 ease-in-out;
+    }
+
+    @media screen and (max-width: 768px) {
+        .feature-list {
+            margin-right: -0.875rem;
+        }
+    }
+}
