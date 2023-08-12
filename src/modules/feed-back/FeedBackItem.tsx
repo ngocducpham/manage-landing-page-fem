@@ -2,6 +2,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 
 import { Text } from "@/components/Text";
+import { rgbDataURL } from "@/lib/utils";
 
 interface FeedBackItemProps {
     id: number;
@@ -14,6 +15,8 @@ function FeedBackItem(props: FeedBackItemProps) {
         <div className="bg-gray-300 relative py-12 md:w-[538px]">
             <Image
                 className="rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                placeholder="blur"
+                blurDataURL={rgbDataURL(169, 169, 172)}
                 width={72}
                 height={72}
                 src={`https://i.pravatar.cc/300?img=${props.id}`}
